@@ -1,0 +1,22 @@
+name: Flunt CI
+
+on:
+  push:
+    branches:
+      - develop
+      - main
+      - 'releases/**'
+  pull_request:
+    branches:
+      - develop
+      - main
+      - 'releases/**'
+  label:
+    types: [done]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: make ci
