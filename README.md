@@ -68,8 +68,6 @@ final class CPFContract extends Contract
     public function validDocument(string $cpf, string $property, string $message): self {...}
 }
 
-
-  ...
 ```
 ## Fluent Methods
 ```php
