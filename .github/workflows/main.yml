@@ -5,14 +5,12 @@ on:
     branches:
       - develop
       - main
-      - 'releases/**'
+      - "releases/**"
   pull_request:
     branches:
       - develop
       - main
-      - 'releases/**'
-  label:
-    types: [done]
+      - "releases/**"
 
 permissions:
   contents: read
@@ -21,16 +19,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
       - name: Validate composer.json and composer.lock
-      - run: composer validate --strict
+        uses: actions/checkout@v3
+        run: composer validate --strict
 
       - name: Code quality analyzer
-      - run: composer run-script analyze
+        run: composer run-script analyze
 
       - name: Install dependencies
-      - run: composer install --prefer-dist --no-progress
+        run: composer install --prefer-dist --no-progress
 
       - name: Run test
-      - run: composer run-script test
+        run: composer run-script test
