@@ -24,13 +24,13 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Validate composer.json and composer.lock
-        run: composer validate --strict
+      - run: composer validate --strict
 
       - name: Code quality analyzer
-        run: composer run-script analyze
+      - run: composer run-script analyze
 
       - name: Install dependencies
-        run: composer install --prefer-dist --no-progress
+      - run: composer install --prefer-dist --no-progress
 
       - name: Run test
       - run: composer run-script test
